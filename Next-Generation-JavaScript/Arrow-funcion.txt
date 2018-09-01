@@ -1,0 +1,32 @@
+//arrow funcions
+/*********************/
+function printMyName(name){
+  console.log(name);
+}
+
+printMyName("torikul alam");
+
+
+const printMyName =(name) => {
+  console.log(name);
+}
+
+printMyName("torikul alam");
+
+const printMyName =name => {
+  console.log(name);
+}
+
+printMyName("torikul alam");
+
+
+const printMyName =(name,age) => {
+  console.log(name,age);
+}
+
+printMyName("torikul alam",28);
+
+const multiply = number => number*2;
+
+
+console.log(multiply(5))

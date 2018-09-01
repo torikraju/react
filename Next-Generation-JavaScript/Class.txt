@@ -1,0 +1,61 @@
+class Human {
+  
+  constructor(){
+    this.age= 25;
+  }
+  
+  printAge(){
+    console.log(this.age);
+  }
+  
+  
+}
+
+
+class Person extends Human {
+  
+  constructor(){
+    super();
+    this.name = 'torik';
+    this.age = 29;
+
+  }
+  
+  printMyname(){
+    console.log(this.name);
+  }
+  
+}
+
+const person = new Person();
+person.printMyname();
+person.printAge();
+
+
+ES6/Bable style
+class Human {
+  
+  age = 25;
+  
+  printAge(){
+    console.log(this.age);
+  }
+  
+  
+}
+
+
+class Person extends Human {
+  
+   name = 'torik';
+   age = 25
+  
+  printMyname(){
+    console.log(this.name);
+  }
+  
+}
+
+const person = new Person();
+person.printMyname();
+person.printAge();
