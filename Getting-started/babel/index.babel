@@ -1,0 +1,18 @@
+function Persion (props) {
+  return (
+    <div class='persion'>
+         <h1>{props.name}</h1>
+         <p>Age is {props.age}</p>
+    </div>
+  );
+}
+
+var app = (
+  <div>
+      <Persion name='Cirilla' age='22' />
+      <Persion name='Triss' age='45' />
+  </div>
+);
+
+ReactDOM.render(app,
+                document.querySelector('#app'));
