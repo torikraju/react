@@ -9,12 +9,20 @@ class App extends Component {
             {name: 'Triss', age: 28},
             {name: 'Yennefer', age: 30},
             {name: 'Cirilla', age: 22}
-        ]
+        ],
+        otherState: 'some other value'
     }
 
     showFullNameHandler = () => {
-        console.log("button clicked")
+        this.setState({
+            Persons: [
+                {name: 'Triss Merigold', age: 28},
+                {name: 'Yennefer', age: 30},
+                {name: 'Cirilla', age: 21}
+            ]
+        })
     }
+
 
     render() {
         return (
