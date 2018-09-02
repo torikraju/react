@@ -12,12 +12,16 @@ class App extends Component {
         ]
     }
 
+    showFullNameHandler = () => {
+        console.log("button clicked")
+    }
+
     render() {
         return (
             <div className="App">
                 <h1>Hello i'm react app</h1>
                 <p>This is really working</p>
-                <button>Show full name</button>
+                <button onClick={this.showFullNameHandler}>Show full name</button>
                 <Person name={this.state.Persons[0].name} age={this.state.Persons[0].age}/>
                 <Person name={this.state.Persons[1].name} age={this.state.Persons[1].age}>Powerful sorceress</Person>
                 <Person name={this.state.Persons[2].name} age={this.state.Persons[2].age}/>
