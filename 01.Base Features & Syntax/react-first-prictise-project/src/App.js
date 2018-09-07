@@ -14,14 +14,10 @@ class App extends Component {
         showPerson: false
     }
 
-    showFullNameHandler = (name) => {
-        this.setState({
-            Persons: [
-                {name: name, age: 28},
-                {name: 'Yennefer', age: 30},
-                {name: 'Cirilla', age: 22}
-            ]
-        })
+    deletePersonHandler = () => {
+        const person = this.state.Persons;
+        person.splice(person, 1);
+        this.setState({Persons: person});
     }
 
     changeNameHandler = (event) => {
@@ -54,8 +50,9 @@ class App extends Component {
         if (this.state.showPerson) {
             person = (
                 <div>
-                    {this.state.Persons.map(person = () => {
+                    {this.state.Persons.map((person, index) => {
                         return <Person
+                            click={() => this.deletePersonHandler(index)}
                             name={person.name}
                             age={person.age}/>
                     })}
