@@ -10,7 +10,8 @@ class App extends Component {
             {name: 'Yennefer', age: 30},
             {name: 'Cirilla', age: 22}
         ],
-        otherState: 'some other value'
+        otherState: 'some other value',
+        showPerson: false
     }
 
     showFullNameHandler = (name) => {
@@ -33,6 +34,11 @@ class App extends Component {
         })
     }
 
+    togglePersonHandler = () => {
+        const doesShow = this.state.showPerson;
+        this.setState({showPerson: !doesShow});
+    }
+
 
     render() {
         const style = {
@@ -48,19 +54,22 @@ class App extends Component {
                 <p>This is really working</p>
                 <button
                     style={style}
-                    onClick={() => this.showFullNameHandler("Triss Merigold")}>Show full name
+                    onClick={this.togglePersonHandler}>Toggle Name
                 </button>
-                <Person
-                    name={this.state.Persons[0].name}
-                    age={this.state.Persons[0].age}/>
-                <Person
-                    name={this.state.Persons[1].name}
-                    age={this.state.Persons[1].age}
-                    click={this.showFullNameHandler.bind(this, "Triss")}>Powerful sorceress</Person>
-                <Person
-                    name={this.state.Persons[2].name}
-                    age={this.state.Persons[2].age}
-                    changed={this.changeNameHandler}/>
+                {this.state.showPerson ? <div>
+                    <Person
+                        name={this.state.Persons[0].name}
+                        age={this.state.Persons[0].age}/>
+                    <Person
+                        name={this.state.Persons[1].name}
+                        age={this.state.Persons[1].age}
+                        click={this.showFullNameHandler.bind(this, "Triss")}>Powerful sorceress</Person>
+                    <Person
+                        name={this.state.Persons[2].name}
+                        age={this.state.Persons[2].age}
+                        changed={this.changeNameHandler}/>
+                </div> : null
+                }
             </div>
         );
         //return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Does this works'));
