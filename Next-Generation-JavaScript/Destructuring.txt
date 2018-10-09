@@ -1,0 +1,9 @@
+[a,b]=["hello","torik"];
+console.log(a);
+
+//adding element
+const numbers = [1,2,3];
+[num1, ,num3] = numbers;
+console.log(num1,num3);
+
+
