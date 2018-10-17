@@ -1,15 +1,11 @@
 import React from 'react';
 import Aux from '../../../hoc/Auxiliary'
-import AppUtil from "../../../Helper/AppUtil";
+import Data from "../../../Helper/Data";
 
 
 const orderSummary = (props) => {
-    const ingredientSummary = Object.keys(props.ingredients)
-        .map(igKey => {
-            return <li key={AppUtil.ID()}>
-                <span style={{textTransform: 'capitalize'}}>{igKey}: {props.ingredients[igKey]}</span>
-            </li>
-        });
+    const ingredientSummary = Data.ingredientSummary(props.ingredients);
+
     return (
         <Aux>
             <h3>Your Order</h3>
