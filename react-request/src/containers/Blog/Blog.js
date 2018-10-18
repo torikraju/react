@@ -28,7 +28,7 @@ class Blog extends Component {
             })
             .catch(error => {
                 //console.log(error);
-                this.setState({error: true});
+
             });
     }
 
