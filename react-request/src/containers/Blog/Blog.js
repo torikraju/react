@@ -15,6 +15,7 @@ class Blog extends Component {
         error: false
     }
 
+    //basic get request
     componentDidMount() {
         axios.get('/posts')
             .then(response => {

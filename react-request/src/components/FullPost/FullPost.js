@@ -9,6 +9,7 @@ class FullPost extends Component {
         loadedPost: null
     }
 
+    ////basic get request
     componentDidUpdate() {
         if (this.props.id) {
             if (!this.state.loadedPost || (this.state.loadedPost && this.state.loadedPost.id !== this.props.id)) {
@@ -21,6 +22,7 @@ class FullPost extends Component {
         }
     }
 
+    //basic delete request
     deletePostHandler = () => {
         axios.delete('/posts/' + this.props.id)
             .then(response => {
