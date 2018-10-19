@@ -13,7 +13,8 @@ class Data {
         },
         totalPrice: 20,
         purchasable: false,
-        purchasing: false
+        purchasing: false,
+        loading: false
 
     }
 
