@@ -30,6 +30,12 @@ class Posts extends Component {
                 console.log(error);
                 this.setState({error: true});
             });
+
+    }
+
+
+    loadData() {
+
     }
 
     postSelectedHandler = (id) => {
