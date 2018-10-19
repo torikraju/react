@@ -28,7 +28,7 @@ class FullPost extends Component {
         axios.delete('/posts/' + this.props.id)
             .then(response => {
                 console.log(response);
-            })
+            });
     }
 
     render() {
