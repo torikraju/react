@@ -6,7 +6,7 @@ const instance = axios.create({
 instance.defaults.headers.common['Authorization'] = 'AUTH TOKEN FROM INSTANCES';
 
 instance.interceptors.request.use(request => {
-    console.log(request);
+    //console.log(request);
     return request;
 }, error => {
     console.log(error);
@@ -14,11 +14,11 @@ instance.interceptors.request.use(request => {
 });
 
 instance.interceptors.response.use(response => {
-    console.log("inside instance");
-    console.log(response);
+    //console.log("inside instance");
+    //console.log(response);
     return response;
 }, error => {
-    console.log(error);
+    //console.log(error);
     return Promise.reject(error);
 });
 

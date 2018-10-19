@@ -10,7 +10,7 @@ class Posts extends Component {
 
     //basic get request
     componentDidMount() {
-        console.log(this.props);
+        //console.log(this.props);
         axios.get('/posts')
             .then(response => {
                 const posts = response.data.slice(0, 4);
