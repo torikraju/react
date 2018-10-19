@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 
 import './NewPost.css';
 import axios from 'axios';
+
 // import {Redirect} from 'react-router-dom'
 
 class NewPost extends Component {
@@ -29,6 +30,7 @@ class NewPost extends Component {
     }
 
     componentDidMount() {
+        // if unauthenticated this.props.history.replace('/posts');
         console.log(this.props);
     }
 
