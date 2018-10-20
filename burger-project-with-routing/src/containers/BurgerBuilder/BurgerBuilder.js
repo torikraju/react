@@ -2,11 +2,11 @@ import React, {Component} from 'react';
 import Aux from '../../hoc/Auxiliary/Auxiliary'
 import Burger from '../../components/Burger/Burger';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
-import Modal from '../../UI/Modal/Modal';
+import Modal from '../../components/UI/Modal/Modal';
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummery';
 import Data from "../../Helper/Data";
 import axios from '../../axios-order';
-import Spinner from '../../UI/Spinner/Spinner';
+import Spinner from '../../components/UI/Spinner/Spinner';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 
 
