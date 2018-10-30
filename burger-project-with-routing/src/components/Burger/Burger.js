@@ -5,7 +5,7 @@ import Data from "../../Helper/Data";
 // import {withRouter} from 'react-router-dom'
 
 const burger = (props) => {
-    console.log(props);
+    //console.log(props);
     let transformedIngredients = Data.transformedIngredients(props.ingredients);
 
     if (transformedIngredients.length === 0) {

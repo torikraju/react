@@ -7,7 +7,7 @@ import Backdrop from '../Backdrop/Backdrop';
 class Modal extends Component {
 
     componentWillUpdate() {
-        console.log("[Modal] willUpdate");
+        //console.log("[Modal] willUpdate");
     }
 
     shouldComponentUpdate(nextProps, nextState) {
