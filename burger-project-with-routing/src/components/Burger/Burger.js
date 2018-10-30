@@ -2,9 +2,10 @@ import React from 'react';
 import styles from './Burger.module.css';
 import BurgerIngredient from './BurgerIngredient/BurgerIngredient';
 import Data from "../../Helper/Data";
+// import {withRouter} from 'react-router-dom'
 
 const burger = (props) => {
-
+    console.log(props);
     let transformedIngredients = Data.transformedIngredients(props.ingredients);
 
     if (transformedIngredients.length === 0) {
@@ -19,4 +20,5 @@ const burger = (props) => {
     );
 }
 
+// export default withRouter(burger);
 export default burger;
