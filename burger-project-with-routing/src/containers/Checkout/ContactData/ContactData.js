@@ -20,21 +20,23 @@ class ContactData extends Component {
         return formData;
     }
 
-    checkValidity(value, rules) {
-        console.log(rules);
+    checkValidity(value, rules, inputIdentifier) {
+        console.log(inputIdentifier);
         let isValid = true;
-        if (rules.required) {
-            isValid = value.trim() !== '' && isValid;
-        }
+        if (inputIdentifier !== "deliveryMethod") {
+            if (rules.required) {
+                isValid = value.trim() !== '' && isValid;
+            }
 
-        if (rules.minLength) {
-            isValid = value.length >= rules.minLength && isValid;
-        }
+            if (rules.minLength) {
+                isValid = value.length >= rules.minLength && isValid;
+            }
 
-        if (rules.maxLength) {
-            isValid = value.length <= rules.maxLength && isValid;
+            if (rules.maxLength) {
+                isValid = value.length <= rules.maxLength && isValid;
+            }
         }
-
+        
         return isValid;
     }
 
@@ -72,7 +74,8 @@ class ContactData extends Component {
         };
 
         updatedFormElement.value = event.target.value;
-        updatedFormElement.valid = this.checkValidity(updatedFormElement.value, updatedFormElement.validation)
+        updatedFormElement.valid = this.checkValidity(updatedFormElement.value, updatedFormElement.validation, inputIdentifier);
+        updatedFormElement.touched = true;
         updatedOrderForm[inputIdentifier] = updatedFormElement;
         console.log(updatedFormElement)
         this.setState({orderForm: updatedOrderForm});
@@ -88,6 +91,7 @@ class ContactData extends Component {
                     value={formElement.config.value}
                     invalid={!formElement.config.valid}
                     shouldValidate={formElement.config.validation}
+                    touched={formElement.config.touched}
                     changed={(event) => this.inputChangedHandler(event, formElement.id)}/>
             ))}
             <Button btnType='Success'>ORDER</Button>

@@ -52,7 +52,8 @@ class Data {
                 },
                 value: '',
                 validation: {required: true},
-                valid: false
+                valid: false,
+                touched: false
             },
             street: {
                 elementType: 'input',
@@ -62,7 +63,8 @@ class Data {
                 },
                 value: '',
                 validation: {required: true},
-                valid: false
+                valid: false,
+                touched: false
             },
             zipCode: {
                 elementType: 'input',
@@ -76,7 +78,8 @@ class Data {
                     minLength: 4,
                     maxLength: 6
                 },
-                valid: false
+                valid: false,
+                touched: false
             },
             country: {
                 elementType: 'input',
@@ -86,7 +89,8 @@ class Data {
                 },
                 value: '',
                 validation: {required: true},
-                valid: false
+                valid: false,
+                touched: false
             },
             email: {
                 elementType: 'input',
@@ -96,7 +100,8 @@ class Data {
                 },
                 value: '',
                 validation: {required: true},
-                valid: false
+                valid: false,
+                touched: false
             },
             deliveryMethod: {
                 elementType: 'select',
