@@ -112,6 +112,7 @@ class Data {
                     ]
                 },
                 value: '',
+                validation: {},
                 valid: true
             }
         },
