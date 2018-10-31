@@ -15,10 +15,18 @@ class ContactData extends Component {
     orderHandler = (event) => {
         event.preventDefault();
         //alert('You Continue!');
+
+        const formData = {};
+        for (let key in this.state.orderForm) {
+            formData[key] = this.state.orderForm[key].value;
+        }
+
+
         this.setState({loading: true});
         const order = {
             ingredients: this.props.ingredients,
-            price: this.props.price
+            price: this.props.price,
+            orderData: formData
         }
 
         //sending post request to dummy server
@@ -50,7 +58,7 @@ class ContactData extends Component {
     }
 
     render() {
-        let form = (<form>
+        let form = (<form onSubmit={this.orderHandler}>
             {AppUtil.convertFormData(this.state.orderForm).map(formElement => (
                 <Input
                     key={formElement.id}
@@ -59,7 +67,7 @@ class ContactData extends Component {
                     value={formElement.config.value}
                     changed={(event) => this.inputChangedHandler(event, formElement.id)}/>
             ))}
-            <Button btnType='Success' clicked={this.orderHandler}>ORDER</Button>
+            <Button btnType='Success'>ORDER</Button>
         </form>);
         if (this.state.loading) {
             form = <Spinner/>
