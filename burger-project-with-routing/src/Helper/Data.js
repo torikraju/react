@@ -50,7 +50,9 @@ class Data {
                     type: 'text',
                     placeholder: 'Your Name'
                 },
-                value: ''
+                value: '',
+                validation: {required: true},
+                valid: false
             },
             street: {
                 elementType: 'input',
@@ -58,7 +60,9 @@ class Data {
                     type: 'text',
                     placeholder: 'Street'
                 },
-                value: ''
+                value: '',
+                validation: {required: true},
+                valid: false
             },
             zipCode: {
                 elementType: 'input',
@@ -66,7 +70,13 @@ class Data {
                     type: 'text',
                     placeholder: 'ZIP Code'
                 },
-                value: ''
+                value: '',
+                validation: {
+                    required: true,
+                    minLength: 4,
+                    maxLength: 6
+                },
+                valid: false
             },
             country: {
                 elementType: 'input',
@@ -74,7 +84,9 @@ class Data {
                     type: 'text',
                     placeholder: 'Country'
                 },
-                value: ''
+                value: '',
+                validation: {required: true},
+                valid: false
             },
             email: {
                 elementType: 'input',
@@ -82,7 +94,9 @@ class Data {
                     type: 'email',
                     placeholder: 'Your E-Mail'
                 },
-                value: ''
+                value: '',
+                validation: {required: true},
+                valid: false
             },
             deliveryMethod: {
                 elementType: 'select',

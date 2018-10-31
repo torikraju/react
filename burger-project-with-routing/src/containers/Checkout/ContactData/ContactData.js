@@ -12,21 +12,39 @@ class ContactData extends Component {
 
     state = Data.orderForm;
 
-    orderHandler = (event) => {
-        event.preventDefault();
-        //alert('You Continue!');
-
+    getFromData = () => {
         const formData = {};
         for (let key in this.state.orderForm) {
             formData[key] = this.state.orderForm[key].value;
         }
+        return formData;
+    }
 
+    checkValidity = (value, rules) => {
+        let isValid = false;
+        if (rules.required) {
+            isValid = value.trim() !== '';
+        }
 
+        if (rules.minLength) {
+            isValid = value.length >= rules.minLength;
+        }
+
+        if (rules.maxLength) {
+            isValid = value.length >= rules.maxLength;
+        }
+
+        return isValid;
+    }
+
+    orderHandler = (event) => {
+        event.preventDefault();
+        //alert('You Continue!');
         this.setState({loading: true});
         const order = {
             ingredients: this.props.ingredients,
             price: this.props.price,
-            orderData: formData
+            orderData: this.getFromData()
         }
 
         //sending post request to dummy server
@@ -53,7 +71,9 @@ class ContactData extends Component {
         };
 
         updatedFormElement.value = event.target.value;
+        updatedFormElement.valid = this.checkValidity(updatedFormElement.value, updatedFormElement.validation)
         updatedOrderForm[inputIdentifier] = updatedFormElement;
+        console.log(updatedFormElement)
         this.setState({orderForm: updatedOrderForm});
     }
 
