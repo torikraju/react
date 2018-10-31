@@ -21,7 +21,6 @@ class ContactData extends Component {
     }
 
     checkValidity(value, rules, inputIdentifier) {
-        console.log(inputIdentifier);
         let isValid = true;
         if (inputIdentifier !== "deliveryMethod") {
             if (rules.required) {
@@ -36,8 +35,16 @@ class ContactData extends Component {
                 isValid = value.length <= rules.maxLength && isValid;
             }
         }
-        
+
         return isValid;
+    }
+
+    isFormValid(props) {
+        let formIsValid = true;
+        for (let inputIdentifier in props) {
+            formIsValid = props[inputIdentifier].valid && formIsValid;
+        }
+        return formIsValid;
     }
 
     orderHandler = (event) => {
@@ -77,8 +84,8 @@ class ContactData extends Component {
         updatedFormElement.valid = this.checkValidity(updatedFormElement.value, updatedFormElement.validation, inputIdentifier);
         updatedFormElement.touched = true;
         updatedOrderForm[inputIdentifier] = updatedFormElement;
-        console.log(updatedFormElement)
-        this.setState({orderForm: updatedOrderForm});
+        let formIsValid = this.isFormValid(updatedOrderForm);
+        this.setState({orderForm: updatedOrderForm, formIsValid: formIsValid});
     }
 
     render() {
@@ -94,7 +101,7 @@ class ContactData extends Component {
                     touched={formElement.config.touched}
                     changed={(event) => this.inputChangedHandler(event, formElement.id)}/>
             ))}
-            <Button btnType='Success'>ORDER</Button>
+            <Button btnType='Success' disable={!this.state.formIsValid}>ORDER</Button>
         </form>);
         if (this.state.loading) {
             form = <Spinner/>

@@ -111,9 +111,11 @@ class Data {
                         {value: 'cheapest', displayValue: 'Cheapest'}
                     ]
                 },
-                value: ''
+                value: '',
+                valid: true
             }
         },
+        formIsValid: false,
         loading: false
     }
 
