@@ -14,6 +14,7 @@ class Orders extends Component {
         axios.get('/orders.json')
             .then(res => {
                 //console.log(res.data);
+                //another way to convert data
                 const fetchedOrders = [];
                 for (let key in res.data) {
                     fetchedOrders.push({
