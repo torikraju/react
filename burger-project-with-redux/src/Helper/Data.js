@@ -5,7 +5,6 @@ import BurgerIngredient from "../components/Burger/BurgerIngredient/BurgerIngred
 class Data {
 
     static burgerInfo = {
-        ingredients: null,
         totalPrice: 20,
         purchasable: false,
         purchasing: false,
