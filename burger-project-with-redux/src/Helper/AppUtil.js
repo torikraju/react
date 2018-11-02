@@ -15,6 +15,16 @@ class AppUtil {
         return formElementsArray;
     }
 
+    static isPurchasable(ingredients) {
+        const sum = Object.keys(ingredients)
+            .map(ingredientKey => {
+                return ingredients[ingredientKey];
+            }).reduce((sum, el) => {
+                return sum + el;
+            }, 0);
+        return sum > 0;
+    }
+
 
 }
 
