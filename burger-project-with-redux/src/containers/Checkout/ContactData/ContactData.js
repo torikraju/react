@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+
+
 import Button from '../../../components/UI/Button/Button';
 import styles from './ContactData.module.css';
 import axios from '../../../axios-order';
@@ -20,7 +23,7 @@ class ContactData extends Component {
         return formData;
     }
 
-    checkValidity(value, rules, inputIdentifier) {
+    checkValidity(value, rules) {
         let isValid = true;
 
         if (rules.required) {
@@ -52,7 +55,7 @@ class ContactData extends Component {
         //alert('You Continue!');
         this.setState({loading: true});
         const order = {
-            ingredients: this.props.ingredients,
+            ingredients: this.props.ings,
             price: this.props.price,
             orderData: this.getFromData()
         }
@@ -81,7 +84,7 @@ class ContactData extends Component {
         };
 
         updatedFormElement.value = event.target.value;
-        updatedFormElement.valid = this.checkValidity(updatedFormElement.value, updatedFormElement.validation, inputIdentifier);
+        updatedFormElement.valid = this.checkValidity(updatedFormElement.value, updatedFormElement.validation);
         updatedFormElement.touched = true;
         updatedOrderForm[inputIdentifier] = updatedFormElement;
         let formIsValid = this.isFormValid(updatedOrderForm);
@@ -115,4 +118,11 @@ class ContactData extends Component {
     }
 }
 
-export default withRouter(ContactData);
+const mapStateToProps = state => {
+    return {
+        ings: state.ingredients,
+        price: state.totalPrice
+    }
+}
+
+export default connect(mapStateToProps)(withRouter(ContactData));
