@@ -9,14 +9,14 @@ const initialState = {
         meat: 0
     },
     totalPrice: 20
-}
+};
 
 const INGREDIENTS_PRICES = {
     salad: 12,
     cheese: 25,
     meat: 42,
     bacon: 37
-}
+};
 
 const reducer = (state = initialState, action) => {
 
