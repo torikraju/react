@@ -7,16 +7,14 @@ class Data {
     static burgerInfo = {
         purchasing: false,
         loading: false,
-        error: false
-
-    }
+    };
 
     static INGREDIENTS_PRICES = {
         salad: 12,
         cheese: 25,
         meat: 42,
         bacon: 37
-    }
+    };
 
     static ingredientSummary = (ingredients) => {
         return Object.keys(ingredients)
@@ -113,8 +111,7 @@ class Data {
                 valid: true
             }
         },
-        formIsValid: false,
-        loading: false
+        formIsValid: false
     }
 
 
