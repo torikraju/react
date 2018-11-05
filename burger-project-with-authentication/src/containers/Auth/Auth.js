@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 
 import Input from '../../components/UI/Input/Input';
 import Button from '../../components/UI/Button/Button';
 import AppUtil from "../../Helper/AppUtil";
 import styles from './Auth.module.css';
+import * as actions from '../../store/actions/index';
+import * as orderActions from "../../store/actions";
 
 
 class Auth extends Component {
@@ -78,8 +81,13 @@ class Auth extends Component {
         this.setState({controls: updatedControls})
     }
 
+    submitHandler = (event) => {
+        event.preventDefault();
+        this.props.onAuth(this.state.controls.email.value, this.state.controls.password.value);
+    }
+
     render() {
-        let form = (<form onSubmit={this.orderHandler}>
+        let form = (<form onSubmit={this.submitHandler}>
             {AppUtil.convertFormData(this.state.controls).map(formElement => (
                 <Input
                     key={formElement.id}
@@ -102,4 +110,10 @@ class Auth extends Component {
     }
 }
 
-export default Auth;
+const mapDispatchToProps = dispatch => {
+    return {
+        onAuth: (email, password) => dispatch(actions.auth(email, password)),
+    }
+};
+
+export default connect(null, mapDispatchToProps)(Auth);
