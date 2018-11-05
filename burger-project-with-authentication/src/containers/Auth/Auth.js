@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
+
 import Input from '../../components/UI/Input/Input';
 import Button from '../../components/UI/Button/Button';
 import AppUtil from "../../Helper/AppUtil";
 import styles from './Auth.module.css';
 import * as actions from '../../store/actions/index';
-import * as orderActions from "../../store/actions";
 
 
 class Auth extends Component {
