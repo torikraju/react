@@ -25,6 +25,17 @@ class AppUtil {
         return sum > 0;
     }
 
+    static getOrders(data) {
+        const fetchedOrders = [];
+        for (let key in data) {
+            fetchedOrders.push({
+                ...data[key],
+                id: key
+            });
+        }
+        return fetchedOrders;
+    }
+
 
 }
 

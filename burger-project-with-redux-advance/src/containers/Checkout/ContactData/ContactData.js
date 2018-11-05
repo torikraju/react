@@ -11,7 +11,6 @@ import Input from '../../../components/UI/Input/Input';
 import Data from "../../../Helper/Data";
 import AppUtil from "../../../Helper/AppUtil";
 import withErrorHandler from '../../../hoc/withErrorHandler/withErrorHandler';
-import * as burgerBuilderActions from "../../../store/actions";
 import * as orderActions from '../../../store/actions/index';
 
 class ContactData extends Component {
