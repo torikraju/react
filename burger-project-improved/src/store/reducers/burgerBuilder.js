@@ -1,6 +1,6 @@
 import * as actionTypes from '../actions/actionTypes';
 import Data from "../../Helper/Data";
-import {updateObject} from "../uitility";
+import {updateObject} from "../../shared/uitility";
 
 
 const initialState = {

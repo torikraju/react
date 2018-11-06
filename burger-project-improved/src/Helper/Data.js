@@ -94,7 +94,7 @@ class Data {
                     placeholder: 'Your E-Mail'
                 },
                 value: '',
-                validation: {required: true},
+                validation: {required: true, isEmail: true},
                 valid: false,
                 touched: false
             },

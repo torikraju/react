@@ -12,6 +12,7 @@ import Data from "../../../Helper/Data";
 import AppUtil from "../../../Helper/AppUtil";
 import withErrorHandler from '../../../hoc/withErrorHandler/withErrorHandler';
 import * as orderActions from '../../../store/actions/index';
+import {updateObject} from "../../../shared/uitility";
 
 class ContactData extends Component {
 
@@ -69,19 +70,15 @@ class ContactData extends Component {
     };
 
     inputChangedHandler = (event, inputIdentifier) => {
-        //console.log(event.target.value);
-        const updatedOrderForm = {
-            ...this.state.orderForm
-        }
+        const updatedFormElement = updateObject(this.state.orderForm[inputIdentifier], {
+            value: event.target.value,
+            valid: this.checkValidity(event.target.value, this.state.orderForm[inputIdentifier].validation),
+            touched: true
+        });
 
-        const updatedFormElement = {
-            ...updatedOrderForm[inputIdentifier]
-        };
-
-        updatedFormElement.value = event.target.value;
-        updatedFormElement.valid = this.checkValidity(updatedFormElement.value, updatedFormElement.validation);
-        updatedFormElement.touched = true;
-        updatedOrderForm[inputIdentifier] = updatedFormElement;
+        const updatedOrderForm = updateObject(this.state.orderForm, {
+            [inputIdentifier]: updatedFormElement
+        });
         let formIsValid = this.isFormValid(updatedOrderForm);
         this.setState({orderForm: updatedOrderForm, formIsValid: formIsValid});
     }
