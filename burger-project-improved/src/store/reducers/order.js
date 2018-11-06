@@ -21,7 +21,7 @@ const purchaseInit = (state) => {
 };
 
 const purchaseBurgerStart = (state) => {
-    return updateObject(state, {purchased: false});
+    return updateObject(state, {purchased: true});
 };
 
 const purchaseBurgerFailed = (state) => {
