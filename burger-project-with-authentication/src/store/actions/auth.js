@@ -1,6 +1,5 @@
 import * as actionTypes from './actionTypes';
 import axios from 'axios';
-import {updateObject} from "../uitility";
 
 
 export const authStart = () => {
@@ -60,6 +59,12 @@ export const auth = (email, password, isSignUp) => {
             .catch(error => {
                 dispatch(authFailed(error.response.data.error));
             })
-        //..perform authentication
+    };
+};
+
+export const setAuthRedirectPath = (path) => {
+    return {
+        type: actionTypes.SET_AUTH_REDIRECT_PATH,
+        path: path
     };
 };

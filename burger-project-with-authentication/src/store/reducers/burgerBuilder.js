@@ -6,7 +6,8 @@ import {updateObject} from "../uitility";
 const initialState = {
     ingredients: null,
     totalPrice: 20,
-    error: false
+    error: false,
+    building: false
 };
 
 const INGREDIENTS_PRICES = Data.INGREDIENTS_PRICES
@@ -16,7 +17,8 @@ const addIngredient = (state, action) => {
     const updatedIngredients = updateObject(state.ingredients, updatedIngredient);
     const updatedState = {
         ingredients: updatedIngredients,
-        totalPrice: state.totalPrice + INGREDIENTS_PRICES[action.ingredientName]
+        totalPrice: state.totalPrice + INGREDIENTS_PRICES[action.ingredientName],
+        building: true
     };
     return updateObject(state, updatedState);
 };
@@ -26,7 +28,8 @@ const removeIngredient = (state, action) => {
     const updatedIngredients = updateObject(state.ingredients, updatedIngredient);
     const updatedState = {
         ingredients: updatedIngredients,
-        totalPrice: state.totalPrice - INGREDIENTS_PRICES[action.ingredientName]
+        totalPrice: state.totalPrice - INGREDIENTS_PRICES[action.ingredientName],
+        building: true
     };
     return updateObject(state, updatedState);
 };
@@ -40,7 +43,8 @@ const setIngredients = (state, action) => {
             meat: action.ingredients.meat
         },
         error: false,
-        totalPrice: initialState.totalPrice
+        totalPrice: initialState.totalPrice,
+        building: false
     });
 };
 
